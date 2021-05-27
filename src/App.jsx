@@ -30,6 +30,7 @@ function App() {
 
     setTareas(deleteTareas)
     setEditar(false)
+    setTarea('')
   } 
 
   const editarTarea = item =>{
@@ -41,17 +42,17 @@ function App() {
 
   const editarTareas = e =>{
     e.preventDefault();
-
     if (!tarea.trim()) {
       
       return
+      
   }
-    const addTareas = tareas.map(item => item.id === id ? {
-      id:id, nombre:tarea} : item)
+    const addTareas = tareas.map(
+      item => item.id === id ? {id, nombre:tarea} : item)
 
       setTareas(addTareas)
-      editar(false)
-      setTareas('')
+      setEditar(false)
+      setTarea('')
       setId('')
   }
   
